@@ -22,6 +22,6 @@ console.log(undefined == 0);// ==> false because undefined is converted to NaN
 console.log(undefined > 0);// ==> false
 console.log(undefined < 0);// ==> false
 
-// === 
+// === -- strict equality operator 
 
 console.log("2" === 2);// ==> false
