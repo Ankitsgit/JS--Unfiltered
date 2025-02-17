@@ -27,10 +27,10 @@ const hundreds = 1000000
 // +++++++++++++ Maths +++++++++++++++++++++++++++++ it is a built in object
 
 // console.log(Math);//=> it will show all the properties and methods of math object
-// console.log(Math.abs(-4));//=> 4
-// console.log(Math.round(4.6));//=> 5
-// console.log(Math.ceil(4.2));//=> 5
-// console.log(Math.floor(4.9));//=> 4
+// console.log(Math.abs(-4));//=> 4- it will return the absolute value
+// console.log(Math.round(4.6));//=> 5- it will round off to the nearest number
+// console.log(Math.ceil(4.2));//=> 5 - it will always round off to the next number
+// console.log(Math.floor(4.9));//=> 4- it will always round off to the previous number
 // console.log(Math.min(4, 3, 6, 8));//=> 3
 // console.log(Math.max(4, 3, 6, 8));//=> 8
 
@@ -38,7 +38,7 @@ console.log(Math.random());//=> it will return a random number between 0 and 1
 console.log((Math.random()*10) + 1);//=> it will return a random number between 1 and 10
 console.log(Math.floor(Math.random()*10) + 1);//=> it will return a random number between 1 and 10
 
-const min = 10
-const max = 20
+const min = 10//=> it will return a random number between 10 and 20
+const max = 20//=> it will return a random number between 10 and 20
 
-console.log(Math.floor(Math.random() * (max - min + 1)) + min)
+console.log(Math.floor(Math.random() * (max - min + 1)) + min) //=> it will return a random number between 10 and 20
