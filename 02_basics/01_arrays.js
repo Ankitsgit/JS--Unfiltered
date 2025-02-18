@@ -12,8 +12,8 @@ const myArr2 = new Array(1, 2, 3, 4)
 // myArr.push(7)
 // myArr.pop()
 
-// myArr.unshift(9)
-// myArr.shift()
+// myArr.unshift(9)//-> it will add the element at the beginning of the array
+// myArr.shift() //-> it will remove the element from the beginning of the array
 
 // console.log(myArr.includes(9));
 // console.log(myArr.indexOf(3));

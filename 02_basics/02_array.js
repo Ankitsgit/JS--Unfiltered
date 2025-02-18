@@ -20,9 +20,9 @@ console.log(real_another_array);//=> [1, 2, 3, 4, 5, 6, 7, 6, 7, 4, 5]
 
 
 
-console.log(Array.isArray("Ankit"));//=> false
-console.log(Array.from("Ankit"));//=> ["A", "n", "k", "i", "t"]
-console.log(Array.from({name: "Ankit"})) // => []
+console.log(Array.isArray("Ankit"));//=> false means it is not an array
+console.log(Array.from("Ankit"));//=> ["A", "n", "k", "i", "t"] - it will convert the string to array
+console.log(Array.from({name: "Ankit"})) // => []- it will return an empty array because it is an object
 
 let score1 = 100
 let score2 = 200
