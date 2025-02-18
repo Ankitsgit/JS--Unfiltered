@@ -22,7 +22,7 @@ function addTwoNumbers(number1, number2){
     return number1 + number2
 }
 
-const result = addTwoNumbers(3, 5)
+// const result = addTwoNumbers(3, 5)
 
 // console.log("Result: ", result);
 
@@ -39,12 +39,19 @@ function loginUserMessage(username = "sam"){
 // console.log(loginUserMessage("hitesh"))//=> hitesh just logged in
 
 
-
-function calculateCartPrice(val1, val2, ...num1){
+/*
+function calculateCartPrice(...num1){
     return num1
+  
+    // num1 - it will return the array of the rest of the values
+}
+*/ 
+
+function calculateCartPrice(val1 ,val2, ...num1){
+    return num1 // it will return the array of the rest of the values
 }
 
-// console.log(calculateCartPrice(200, 400, 500, 2000))
+console.log(calculateCartPrice(200, 400, 500, 2000))
 
 const user = {
     username: "hitesh",
