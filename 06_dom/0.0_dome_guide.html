@@ -1,0 +1,163 @@
+**# 1. What is the DOM?**
+The **DOM** is a representation of your HTML document as a tree-like structure.
+It allows JavaScript to interact with and manipulate HTML elements.
+
+### Example: HTML to DOM
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Example</title>
+  </head>
+  <body>
+    <h1 id="title">Hello, DOM!</h1>
+    <button id="btn">Click Me</button>
+  </body>
+</html>
+```
+👆 The **DOM tree** for this HTML looks like this:
+```
+Document
+ ├── html
+ │    ├── head
+ │    ├── body
+ │        ├── h1  (id="title")
+ │        ├── button (id="btn")
+```
+
+---
+
+**# 2. Selecting Elements in the DOM**
+To manipulate elements, you first need to **select** them.
+
+### Methods to Select Elements
+| Method | Returns | Example |
+|--------|---------|---------|
+| `document.getElementById("id")` | Single element (by ID) | `document.getElementById("title")` |
+| `document.querySelector("selector")` | First matching element | `document.querySelector("#title")` |
+| `document.querySelectorAll("selector")` | All matching elements (NodeList) | `document.querySelectorAll("p")` |
+| `document.getElementsByClassName("class")` | HTMLCollection | `document.getElementsByClassName("btn")` |
+| `document.getElementsByTagName("tag")` | HTMLCollection | `document.getElementsByTagName("h1")` |
+
+### Example
+```js
+const heading = document.getElementById("title");
+console.log(heading.textContent); // Output: Hello, DOM!
+```
+
+---
+
+**# 3. Changing Elements in the DOM**
+Once selected, you can modify elements.
+
+###Modify Text
+```js
+document.getElementById("title").textContent = "Welcome to JavaScript!";
+```
+
+### Modify HTML
+```js
+document.getElementById("title").innerHTML = "<span>Updated Title</span>";
+```
+
+### Change Styles
+```js
+document.getElementById("title").style.color = "blue";
+document.getElementById("title").style.fontSize = "24px";
+```
+
+---
+
+**# 4. Handling Events**
+You can **respond to user interactions** (e.g., clicks, typing, hovering).
+
+### Adding an Event Listener
+```js
+document.getElementById("btn").addEventListener("click", function() {
+    alert("Button Clicked!");
+});
+```
+
+### Example: Change Text on Click
+```js
+document.getElementById("btn").addEventListener("click", function() {
+    document.getElementById("title").textContent = "Button Clicked!";
+});
+```
+
+---
+
+**# 5. Creating & Removing Elements**
+### Creating an Element
+```js
+const newPara = document.createElement("p");
+newPara.textContent = "This is a new paragraph!";
+document.body.appendChild(newPara);
+```
+
+### Removing an Element
+```js
+const title = document.getElementById("title");
+title.remove(); // Removes the <h1> element
+```
+
+---
+
+**# 6. Working with Forms & Inputs**
+```html
+<input type="text" id="nameInput" placeholder="Enter your name">
+<button id="submitBtn">Submit</button>
+<p id="output"></p>
+```
+```js
+document.getElementById("submitBtn").addEventListener("click", function() {
+    const name = document.getElementById("nameInput").value;
+    document.getElementById("output").textContent = "Hello, " + name + "!";
+});
+```
+
+---
+
+**# 7. Traversing the DOM**
+| Property | Description | Example |
+|----------|------------|---------|
+| `parentElement` | Gets the parent of an element | `element.parentElement` |
+| `children` | Gets child elements (HTMLCollection) | `element.children` |
+| `firstElementChild` | First child element | `element.firstElementChild` |
+| `lastElementChild` | Last child element | `element.lastElementChild` |
+| `nextElementSibling` | Next sibling element | `element.nextElementSibling` |
+| `previousElementSibling` | Previous sibling element | `element.previousElementSibling` |
+
+### Example
+```js
+const list = document.getElementById("list");
+console.log(list.firstElementChild.textContent); // Logs first item
+```
+
+---
+
+**# 8. Storing & Retrieving Data (Local Storage)**
+Saves data in the browser, even after refresh.
+
+### Save to Local Storage
+```js
+localStorage.setItem("username", "JohnDoe");
+```
+
+### Retrieve from Local Storage
+```js
+console.log(localStorage.getItem("username")); // Output: JohnDoe
+```
+
+### Remove from Local Storage
+```js
+localStorage.removeItem("username");
+```
+
+---
+
+**# 9. Best Practices for DOM Manipulation**
+✅ Use `querySelector()` and `querySelectorAll()` for flexibility.  
+✅ Minimize DOM manipulations for better performance.  
+✅ Use **event delegation** for dynamic elements (e.g., `document.addEventListener("click", function(event) {...}`)).  
+✅ Cache elements in variables to avoid redundant queries.
