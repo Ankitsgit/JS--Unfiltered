@@ -53,7 +53,7 @@
 
     //4.
     // IN jquery Framework-onEvent()- it is a method that takes two arguments
-//note--
+//note--method of event object---
     // type, timestamp, defaultPrevented
     // target, toElement, srcElement, currentTarget,
     // clientX, clientY, screenX, screenY
@@ -66,13 +66,79 @@
 
     // stopPropagation()- it is a method that stops the propogation of the event
       
-    doument.getElementById("images").addEventListener('click', function(e){
-        console.log('You clicked inside the ul')
+    // document.getElementById("images").addEventListener('click', function(e){
+    //     console.log('You clicked inside the ul')
+    // }, false)
+
+    //jab bhi koi bhi image pe click karenge except owl to ye print hoga
+
+    // document.getElementById("owl").addEventListener('click', function(e){
+    //     console.log('owl clicked')
+    // }, false)
+
+    //jab owl pe click karenge to ye print hoga- owl clicked 
+                                              //-then You clicked inside the ul
+     // this is called event propogation- bubbling phase-child to parent
+     // yaha pr owl <li> tag me hai aur <li>  ,<ul> tag me hai
+     // kyoki jb hm owl pe click krte hai to <ul> bhi intiate hoga to <ul> ka event bhi chalega
+     
+        // false -it is by default
+        // true - it is used in capturing phase- parent to child
+        // pahele parent ka event chalega phir child ka event chalega
+        //you clicked inside the ul then owl clicked
+        
+        //it depend on the usecase ki kis phase me event chahiye
+        //by default false hota hai
+
+        //stopPropagation()- it is a method that stops the propogation of the event
+
+        // document.getElementById("owl").addEventListener('click', function(e){
+        //     console.log('owl clicked')
+        //     e.stopPropagation()
+        // }, false)
+        // jab owl pe click karenge to ye print hoga- owl clicked
+        // ab bubble hoke <ul> ka event nhi chalega
+
+     //  e.preventDefault() //it is used to prevent the default behaviour of the event     
+
+    //  document.getElementById("google").addEventListener('click', function(e){
+    //     e.preventDefault()
+    //     // e.stopPropagation()
+    //     console.log('You clicked on google')
+    //  }, false)
+    
+    // challange --jab image pr click karenge to image gayab ho jaye
+
+
+    // ################################problem############################################
+     
+    // jb image ke ash pas click karenge to  saare image gayab ho jayegi even google link bhi
+    // kyoki image ke parent tag <li> tag me hai aur jb bhi <li> tag pr click karenge to <li> tag remove ho jayegi
+    // aur uske andar ka content bhi remove ho jayega
+
+/*
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode)
+        let removeIt = e.target.parentNode//li tag
+        removeIt.remove() //it will remove the li tag
+        //removeIt.style.display = 'none' //it will hide the li tag   
+       // removeIt.style.visibility = 'hidden' //it will hide the li tag but it will take the space 
+       
+    // removeIt.parentNode.removeChild(removeIt) //it will remove the li tag 
     }, false)
 
-    document.getElementById("owl").addEventListener('click', function(e){
-        console.log('owl clicked')
-    }, false)
+    */
+   // ###############################################to solve problem #########################################
+   // 1. check the target element is image or not
+   // 2. if it is image then remove the image
+   document.querySelector('#images').addEventListener('click', function(e){
+         console.log(e.target.tagName);
+       if(e.target.tagName === 'IMG'){
+           console.log(e.target.id)
+           let removeIt = e.target
+            removeIt.remove()
+       }
+   }, false)
 
 </script>
 

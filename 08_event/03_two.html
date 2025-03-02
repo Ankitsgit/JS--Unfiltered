@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayHitesh = function(){
+        console.log("Ankit");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best JS series"
+    }
+// ################################setTimeout()################################
+    // setTimeout() is a method that takes two arguments
+    // 1. function to be executed   
+    // 2. time in milliseconds
+    // it is used to execute a function after a certain amount of time-execute only once
+    //
+    // setInterval() - it is used to execute a function after a certain amount of time-execute multiple times
+
+    const changeMe = setTimeout(changeText, 2000)
+    //2sec baad changeText function call hoga
+
+// ################################clearTimeout()################################
+    // clearTimeout() is a method that takes one arguments
+    // 1. setTimeout() method    or handler returned by setTimeout()
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+
+    //############################################ points to remember ############################################
+       // 1. setTimeout() are not javascript function
+       // 2. setTimeout() is a method of window object -so it will executein webApi and callback queue
+</script>
+</html>
