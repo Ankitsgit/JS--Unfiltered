@@ -6,25 +6,96 @@
     <title>Document</title>
 </head>
 <body style="background-color: #212121; color: aliceblue;">
-<h1>0 -	UNSENT	- Client has been created. open() not called yet.</h1>
-<h1>1 -	OPENED	- open() has been called.</h1>
-<h1>2 -	HEADERS_RECEIVED - send() has been called, and headers and status are available.</h1>
-<h1>3 -  LOADING - Downloading; responseText holds partial data.</h1>
-<h1>4 -  DONE - The operation is complete.</h1>
+<h6>0 -	UNSENT	- Client has been created. open() not called yet.</h6>
+<h6>1 -	OPENED	- open() has been called.</h6>
+<h6>2 -	HEADERS_RECEIVED - send() has been called, and headers and status are available.</h6>
+<h6>3 -  LOADING - Downloading; responseText holds partial data.</h6>
+<h6>4 -  DONE - The operation is complete.</h6>
 </body>
 <script>
+    /*
+    Url = 'https://api.github.com/users/hiteshchoudhary'// it is a url of public api of github
+           it give the basic information of user  hiteshchoudhary
+
+    Url ='https://randomuser.me - it is a url of public api of random user
+           it give the basic information of random user
+
+     3. Api- Application Programming Interface
+        - it is a set of rules and protocols that allow one software application to communicate with another
+        - it store the data in json format- javascript object notation
+        -json-store the data in key value pair-  
+           -when api store data in the form of as the collection of only object it is easy to access the data
+           -when api store data in the form of array of object it is easy to access the data
+           -when api store data in the form of array of array it is difficult to access the data    
+        use json formatter to read api data
+    
+    4. XMLHttpRequest- it is class or xhr it is a built in object in browser that allows to make http request in javascript  
+       is heavily used in ajax programming
+    
+    5.XMLHttpRequest.ReadyState in XML Http Request
+        - 0 -	UNSENT	- Client has been created. open() not called yet.
+        - 1 -	OPENED	- open() has been called.// it is used to set the request method and url 
+                                                  or request has been sent
+        - 2 -	HEADERS_RECEIVED - send() has been called, and headers and status are available.
+                                  //it does not confirm that the data  is available or not means it does not confirm that the data is loaded or not
+       
+        - 3 -  LOADING - Downloading; responseText holds partial data.  //it confirm that the data is loaded
+        - 4 -  DONE - The operation is complete. //it confirm that the data is loaded and operation is complete 
+                        // hamari taraf se request bhejne ke baad server ne response bhej diya hai but dekhlo ki data aaya hai ya nahi
+                        // responseText- it is a property of xhr object that store the data in string format 
+        
+    6. XMLHttpRequest.onreadystatechange- it is a property of xhr object that store the function that is called when the readyState property changes
+    
+    7. XMLHttpRequest.open()- it is a method of xhr object that is used to set the request method and url
+        - it takes three arguments
+            - 1. request method- it is a string that is used to set the request method like get, post, put, delete
+            - 2. request url- it is a string that is used to set the request url
+            - 3. async- it is a boolean value that is used to set the request is asynchronous or not
+                - true- it is asynchronous request
+                - false- it is synchronous request
+                - by default it is true
+    8. XMLHttpRequest.send()- it is a method of xhr object that is used to send the request to the server
+        - it takes one argument
+            - 1. data- it is a string that is used to send the data to the server         
+    
+    9. XMLHttpRequest.responseText- it is a property of xhr object that store the data in string format
+    10. JSON.parse()- it is a method that is used to convert the string data into object
+    11. JSON.stringify()- it is a method that is used to convert the object data into string    
+
+    
+
+    */    
     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', requestUrl)
-    xhr.onreadystatechange = function(){
+    const xhr = new XMLHttpRequest();// it is a object of XMLHttpRequest class
+    xhr.open('GET', requestUrl)// it is a method that is used to set the request method and url
+    // abhi tak request gayi nahi hai-- abi tak  open call  nhi hua hai 
+     
+    // console.log("open()-- called") //ye print ho raha hai matalab open call ho gaya hai
+
+
+    // console.log(xhr.readyState)// jab open call ho gaya hai to readyState property ki value 1 ho jati hai
+     
+//################## to continously check the readyState property##########################
+
+    // xhr.onreadystatechange = function(){}//  ye  tb tb chalega jb readyState property change hoga
+
+    xhr.onreadystatechange = function(){// it is a property of xhr object that store the function that is called when the readyState property changes
         console.log(xhr.readyState);
-        if (xhr.readyState === 4) {
+        if (xhr.readyState === 4) { // jab readyState property ki value 4 ho jati hai to data load ho chuka hai
+             
+          //  const data = this.responseText// this is a keyword that is used to access the property of object
+            // const data = JSON.parse(this.responseText)
+          //  console.log(typeof data);// string data
+
+            // convert the string data into object- JSON.parse()
             const data = JSON.parse(this.responseText)
-            console.log(typeof data);
-            console.log(data.followers);
+            console.log(data);// it is a object data
+            console.log(data.followers);//undefined-because data is in string format
         }
     }
-    xhr.send();
+
+     
+    xhr.send();// ab open() call ho gaya hai
 
 
 </script>
