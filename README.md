@@ -18,8 +18,7 @@ Track my progress as I explore different topics
 ✅ Frameworks & Libraries (Coming soon!)
 
 📂 Structure
-Copy
-Edit
+
 📦 js-learning-journey  
  ┣ 📂 basics >> advanced  
  ┣ 📂 projects  
