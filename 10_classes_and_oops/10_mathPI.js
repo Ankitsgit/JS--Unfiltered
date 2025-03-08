@@ -1,8 +1,8 @@
 // -----------------change the value of Math.PI------------------
 
 //getOwnPropertyDescriptor() method returns a property descriptor for an own property (that is, one directly present on an object and not in the object's prototype chain) of a given object.
-const descripter = Object.getOwnPropertyDescriptor(Math, "PI")
-/
+const descripter = Object.getOwnPropertyDescriptor(Math, "PI");
+
 
 // console.log(descripter);//output- { value: 3.141592653589793, writable: false, enumerable: false, configurable: false }
 // writable: false means we can't change the value of PI
