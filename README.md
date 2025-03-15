@@ -1,5 +1,5 @@
 # JS--Unfiltered
-🚀 My JavaScript Learning Journey
+📌 JS--Unfiltered - My Javscript Learning Journey
 Welcome to my JavaScript Learning Journey repository! 🎉 This is where I document everything I learn about JavaScript, from fundamentals to advanced concepts.
 
 📖 About This Repo
